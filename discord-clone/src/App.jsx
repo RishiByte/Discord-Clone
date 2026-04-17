@@ -1,16 +1,15 @@
 import React from 'react';
-import Sidebar from './components/Sidebar';
-import Channels from './components/Channels';
-import Chat from './components/Chat';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
 import './styles/index.css';
 
 function App() {
   return (
-    <div className="app-layout">
-      <Sidebar />
-      <Channels />
-      <Chat />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Router>
   );
 }
 
