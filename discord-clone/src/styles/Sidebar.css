@@ -11,29 +11,71 @@
   overflow-x: hidden;
 }
 
+.sidebar-server-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+/* Discord active/hover pill */
+.sidebar-icon-pill {
+  position: absolute;
+  left: 0;
+  width: 4px;
+  height: 8px;
+  background-color: #ffffff;
+  border-radius: 0 4px 4px 0;
+  transition: height 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+  transform: scaleY(0);
+  opacity: 0;
+}
+
+.sidebar-server-wrapper:hover .sidebar-icon-pill {
+  transform: scaleY(1);
+  height: 20px;
+  opacity: 1;
+}
+
+.sidebar-icon-pill.active {
+  transform: scaleY(1);
+  height: 40px;
+  opacity: 1;
+}
+
 .sidebar-server-icon {
   width: 48px;
   height: 48px;
   border-radius: 50%;
+  background-color: #313338;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 500;
   color: #dbdee1;
-  margin-bottom: 8px;
-  transition: border-radius 0.15s ease, background-color 0.15s ease;
+  transition: border-radius 0.2s ease, background-color 0.2s ease, color 0.2s ease;
   flex-shrink: 0;
   user-select: none;
 }
 
-.sidebar-server-icon:hover {
+/* Home Button Default */
+.sidebar-server-icon.home-btn {
+  background-color: #313338;
+}
+
+/* Interactions: Normal Icons */
+.sidebar-server-wrapper:hover .sidebar-server-icon,
+.sidebar-server-icon.active {
   border-radius: 16px;
-  background-color: #5865f2 !important;
+  background-color: #5865f2;
   color: #ffffff;
 }
 
+/* Add Button Interactions */
 .sidebar-add-btn {
   background-color: #313338;
   color: #23a559;
@@ -41,7 +83,8 @@
   font-weight: 400;
 }
 
-.sidebar-add-btn:hover {
+.sidebar-server-wrapper:hover .sidebar-server-icon.sidebar-add-btn {
+  border-radius: 16px;
   background-color: #23a559 !important;
   color: #ffffff;
 }
