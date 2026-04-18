@@ -35,6 +35,18 @@ function Sidebar() {
           +
         </div>
       </div>
+
+      <div className="sidebar-user-profile">
+        <div className="sidebar-user-avatar-container" title="User Settings">
+          <img 
+            src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" 
+            alt="User Avatar" 
+            className="sidebar-user-avatar" 
+          />
+          <div className="sidebar-user-status" title="Online"></div>
+        </div>
+        <div className="sidebar-username" title="JohnDoe">JohnDoe</div>
+      </div>
     </aside>
   );
 }
