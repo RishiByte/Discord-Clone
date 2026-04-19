@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/Channels.css';
+import { CheckIcon, ChevronDownIcon, HashIcon, MicOffIcon, HeadphonesOffIcon, SettingsIcon } from './Icons';
 
 const categories = [
   {
@@ -20,7 +21,7 @@ function Channels() {
       {/* Server header */}
       <header className="channels-header">
         <span className="channels-server-name">Discord Clone</span>
-        <span className="channels-header-icon">&#10003;</span>
+        <span className="channels-header-icon"><CheckIcon /></span>
       </header>
 
       {/* Channel categories */}
@@ -28,7 +29,7 @@ function Channels() {
         {categories.map((cat) => (
           <div key={cat.id} className="channels-category">
             <div className="channels-category-label">
-              <span className="channels-category-arrow">&#9660;</span>
+              <span className="channels-category-arrow"><ChevronDownIcon /></span>
               {cat.label}
             </div>
 
@@ -37,7 +38,7 @@ function Channels() {
                 key={ch}
                 className={`channels-item ${ch === 'general' ? 'channels-item--active' : ''}`}
               >
-                <span className="channels-item-hash">#</span>
+                <span className="channels-item-hash"><HashIcon /></span>
                 <span className="channels-item-name">{ch}</span>
               </div>
             ))}
@@ -47,15 +48,15 @@ function Channels() {
 
       {/* User panel at bottom */}
       <footer className="channels-user-panel">
-        <div className="channels-user-avatar">A</div>
+        <div className="channels-user-avatar">R</div>
         <div className="channels-user-info">
-          <span className="channels-username">Antigravity</span>
+          <span className="channels-username">RDP</span>
           <span className="channels-user-status">#0001</span>
         </div>
         <div className="channels-user-controls">
-          <span title="Mute">&#128263;</span>
-          <span title="Deafen">&#127911;</span>
-          <span title="Settings">&#9881;</span>
+          <span title="Mute"><MicOffIcon /></span>
+          <span title="Deafen"><HeadphonesOffIcon /></span>
+          <span title="Settings"><SettingsIcon /></span>
         </div>
       </footer>
     </aside>
