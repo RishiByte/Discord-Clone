@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/Chat.css';
 import { BellIcon, PinIcon, UsersIcon, HelpIcon, PlusIcon, GiftIcon, GifIcon, SmileIcon, HashIcon } from './Icons';
 
@@ -30,7 +30,21 @@ const initialMessages = [
 ];
 
 function Chat() {
-  const [messages, setMessages] = useState(initialMessages);
+  const [messages, setMessages] = useState(() => {
+    const savedMessages = localStorage.getItem('discordCloneMessages');
+    if (savedMessages) {
+      try {
+        return JSON.parse(savedMessages);
+      } catch (error) {
+        console.error('Failed to parse messages from localStorage:', error);
+      }
+    }
+    return initialMessages;
+  });
+
+  useEffect(() => {
+    localStorage.setItem('discordCloneMessages', JSON.stringify(messages));
+  }, [messages]);
   const [inputText, setInputText] = useState('');
 
   const handleSend = () => {
