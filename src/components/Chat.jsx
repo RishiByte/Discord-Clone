@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/Chat.css';
 import { BellIcon, PinIcon, UsersIcon, HelpIcon, PlusIcon, GiftIcon, GifIcon, SmileIcon, HashIcon } from './Icons';
 
-const messages = [
+const initialMessages = [
   {
     id: 1,
     author: 'RDP',
@@ -30,6 +30,28 @@ const messages = [
 ];
 
 function Chat() {
+  const [messages, setMessages] = useState(initialMessages);
+  const [inputText, setInputText] = useState('');
+
+  const handleSend = () => {
+    if (inputText.trim() === '') return;
+    const newMessage = {
+      id: Date.now(),
+      author: 'Current User',
+      avatarColor: '#5865f2',
+      initials: 'C',
+      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+      text: inputText,
+    };
+    setMessages([...messages, newMessage]);
+    setInputText('');
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleSend();
+    }
+  };
   return (
     <main className="chat">
       {/* Top header bar */}
@@ -97,13 +119,18 @@ function Chat() {
             type="text"
             className="chat-input"
             placeholder="Message #general"
-            readOnly
+            value={inputText}
+            onChange={(e) => setInputText(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
           <div className="chat-input-actions">
             <span title="Gift"><GiftIcon /></span>
             <span title="GIF"><GifIcon /></span>
             <span title="Emoji"><SmileIcon /></span>
           </div>
+          <button className="chat-input-send-btn" onClick={handleSend}>
+            Send
+          </button>
         </div>
       </footer>
     </main>
