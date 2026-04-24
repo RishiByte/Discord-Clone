@@ -155,3 +155,30 @@
 .sidebar-username:hover {
   text-decoration: underline;
 }
+
+/* Light Mode Overrides */
+.light-mode .sidebar {
+  background-color: #e3e5e8;
+}
+.light-mode .sidebar-server-icon {
+  background-color: #ffffff;
+  color: #4e5058;
+}
+.light-mode .sidebar-server-icon.home-btn {
+  background-color: #ffffff;
+}
+.light-mode .sidebar-icon-pill {
+  background-color: #060607;
+}
+.light-mode .sidebar-add-btn {
+  background-color: #ffffff;
+}
+.light-mode .sidebar-divider {
+  background-color: #ccced3;
+}
+.light-mode .sidebar-username {
+  color: #313338;
+}
+.light-mode .sidebar-user-status {
+  border-color: #e3e5e8;
+}

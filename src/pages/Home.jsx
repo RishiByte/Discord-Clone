@@ -1,9 +1,9 @@
 import React from 'react';
 import MainLayout from '../layouts/MainLayout';
 
-function Home() {
+function Home({ toggleTheme, theme }) {
   return (
-    <MainLayout />
+    <MainLayout toggleTheme={toggleTheme} theme={theme} />
   );
 }
 

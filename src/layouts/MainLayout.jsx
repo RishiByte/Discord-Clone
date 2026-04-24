@@ -3,11 +3,11 @@ import Sidebar from '../components/Sidebar';
 import Channels from '../components/Channels';
 import Chat from '../components/Chat';
 
-function MainLayout() {
+function MainLayout({ toggleTheme, theme }) {
   return (
     <div className="app-layout">
       <Sidebar />
-      <Channels />
+      <Channels toggleTheme={toggleTheme} theme={theme} />
       <Chat />
     </div>
   );

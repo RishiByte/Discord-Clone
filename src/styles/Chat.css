@@ -306,3 +306,86 @@
 .chat-input-send-btn:hover {
   background-color: #4752c4;
 }
+
+/* Light Mode Overrides */
+.light-mode .chat {
+  background-color: #ffffff;
+}
+.light-mode .chat-header {
+  border-bottom-color: #e3e5e8;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+.light-mode .chat-header-hash {
+  color: #949ba4;
+}
+.light-mode .chat-header-channel-name {
+  color: #060607;
+}
+.light-mode .chat-header-divider {
+  background-color: #e3e5e8;
+}
+.light-mode .chat-header-topic {
+  color: #5c6067;
+}
+.light-mode .chat-header-icon {
+  color: #4e5058;
+}
+.light-mode .chat-header-icon:hover {
+  background-color: #e3e5e8;
+  color: #313338;
+}
+.light-mode .chat-search-box {
+  background-color: #ebedef;
+}
+.light-mode .chat-search-input {
+  color: #313338;
+}
+.light-mode .chat-search-input::placeholder {
+  color: #5c6067;
+}
+.light-mode .chat-messages::-webkit-scrollbar-track {
+  background: #f2f3f5;
+}
+.light-mode .chat-messages::-webkit-scrollbar-thumb {
+  background: #cccccc;
+}
+.light-mode .chat-channel-welcome {
+  border-bottom-color: #e3e5e8;
+}
+.light-mode .chat-channel-welcome-title {
+  color: #060607;
+}
+.light-mode .chat-channel-welcome-sub {
+  color: #5c6067;
+}
+.light-mode .chat-message:hover {
+  background-color: #f8f9f9;
+}
+.light-mode .chat-message-author {
+  color: #060607;
+}
+.light-mode .chat-message-text {
+  color: #313338;
+}
+.light-mode .chat-input-wrapper {
+  background-color: #ebedef;
+}
+.light-mode .chat-input-attach {
+  color: #4e5058;
+}
+.light-mode .chat-input-attach:hover {
+  color: #313338;
+}
+.light-mode .chat-input {
+  color: #313338;
+}
+.light-mode .chat-input::placeholder {
+  color: #5c6067;
+}
+.light-mode .chat-input-actions span {
+  color: #4e5058;
+}
+.light-mode .chat-input-actions span:hover {
+  background-color: #e3e5e8;
+  color: #313338;
+}

@@ -15,7 +15,7 @@ const categories = [
   },
 ];
 
-function Channels() {
+function Channels({ toggleTheme, theme }) {
   return (
     <aside className="channels">
       {/* Server header */}
@@ -57,6 +57,7 @@ function Channels() {
           <span title="Mute"><MicOffIcon /></span>
           <span title="Deafen"><HeadphonesOffIcon /></span>
           <span title="Settings"><SettingsIcon /></span>
+          <span title="Toggle Theme" onClick={toggleTheme}>{theme === 'dark-mode' ? '☀️' : '🌙'}</span>
         </div>
       </footer>
     </aside>

@@ -177,3 +177,53 @@
   background-color: #35373c;
   color: #dbdee1;
 }
+
+/* Light Mode Overrides */
+.light-mode .channels {
+  background-color: #f2f3f5;
+}
+.light-mode .channels-header {
+  border-bottom-color: #e3e5e8;
+}
+.light-mode .channels-server-name {
+  color: #060607;
+}
+.light-mode .channels-header-icon {
+  color: #4e5058;
+}
+.light-mode .channels-category-label {
+  color: #5c6067;
+}
+.light-mode .channels-category-label:hover {
+  color: #313338;
+}
+.light-mode .channels-item {
+  color: #5c6067;
+}
+.light-mode .channels-item:hover {
+  background-color: #e3e5e8;
+  color: #313338;
+}
+.light-mode .channels-item--active {
+  background-color: #e3e5e8;
+  color: #060607;
+}
+.light-mode .channels-item-hash {
+  color: #949ba4;
+}
+.light-mode .channels-user-panel {
+  background-color: #ebedef;
+}
+.light-mode .channels-username {
+  color: #060607;
+}
+.light-mode .channels-user-status {
+  color: #5c6067;
+}
+.light-mode .channels-user-controls span {
+  color: #4e5058;
+}
+.light-mode .channels-user-controls span:hover {
+  background-color: #e3e5e8;
+  color: #313338;
+}
