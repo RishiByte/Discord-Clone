@@ -46,6 +46,19 @@ function Chat() {
     localStorage.setItem('discordCloneMessages', JSON.stringify(messages));
   }, [messages]);
   const [inputText, setInputText] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
+
+  useEffect(() => {
+    if (inputText.trim().length > 0) {
+      setIsTyping(true);
+      const timeoutId = setTimeout(() => {
+        setIsTyping(false);
+      }, 1500);
+      return () => clearTimeout(timeoutId);
+    } else {
+      setIsTyping(false);
+    }
+  }, [inputText]);
 
   const handleSend = () => {
     if (inputText.trim() === '') return;
@@ -125,6 +138,11 @@ function Chat() {
 
       {/* Input area */}
       <footer className="chat-footer">
+        {isTyping && (
+          <div className="chat-typing-indicator">
+            User is typing...
+          </div>
+        )}
         <div className="chat-input-wrapper">
           <button className="chat-input-attach" title="Attach File">
             <PlusIcon />
