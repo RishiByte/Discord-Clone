@@ -166,6 +166,7 @@
   padding: 4px 16px 4px 16px;
   margin-top: 17px;
   gap: 16px;
+  position: relative;
   transition: background-color 0.15s ease;
 }
 
@@ -229,6 +230,41 @@
   line-height: 1.375rem;
   color: #dbdee1;
   word-break: break-word;
+}
+
+/* ── Delete button ───────────────────────────────────── */
+.chat-message-delete-btn {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #2b2d31;
+  border: 1px solid #3f4147;
+  border-radius: 6px;
+  color: #949ba4;
+  font-size: 15px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+  transform: translateY(-50%) scale(0.85);
+}
+
+.chat-message:hover .chat-message-delete-btn {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-50%) scale(1);
+}
+
+.chat-message-delete-btn:hover {
+  background-color: #ed4245;
+  border-color: #ed4245;
+  color: #ffffff;
 }
 
 /* ── Input footer ────────────────────────────────────── */
@@ -419,4 +455,14 @@
 }
 .light-mode .chat-typing-indicator {
   color: #313338;
+}
+.light-mode .chat-message-delete-btn {
+  background: #f2f3f5;
+  border-color: #d4d7dc;
+  color: #5c6067;
+}
+.light-mode .chat-message-delete-btn:hover {
+  background-color: #ed4245;
+  border-color: #ed4245;
+  color: #ffffff;
 }

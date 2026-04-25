@@ -80,6 +80,13 @@ function Chat({ activeChannel, onMessageSent }) {
     if (onMessageSent) onMessageSent(activeChannel);
   };
 
+  const handleDeleteMessage = (msgId) => {
+    setMessagesByChannel(prev => ({
+      ...prev,
+      [activeChannel]: (prev[activeChannel] || []).filter(m => m.id !== msgId),
+    }));
+  };
+
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       handleSend();
@@ -138,6 +145,14 @@ function Chat({ activeChannel, onMessageSent }) {
               </div>
               <p className="chat-message-text">{msg.text}</p>
             </div>
+            <button
+              className="chat-message-delete-btn"
+              title="Delete message"
+              onClick={() => handleDeleteMessage(msg.id)}
+              aria-label="Delete message"
+            >
+              🗑
+            </button>
           </div>
         ))}
       </section>
