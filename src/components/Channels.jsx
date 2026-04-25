@@ -15,7 +15,7 @@ const categories = [
   },
 ];
 
-function Channels({ toggleTheme, theme }) {
+function Channels({ toggleTheme, theme, activeChannel, setActiveChannel }) {
   return (
     <aside className="channels">
       {/* Server header */}
@@ -36,7 +36,8 @@ function Channels({ toggleTheme, theme }) {
             {cat.channels.map((ch) => (
               <div
                 key={ch}
-                className={`channels-item ${ch === 'general' ? 'channels-item--active' : ''}`}
+                className={`channels-item ${ch === activeChannel ? 'channels-item--active' : ''}`}
+                onClick={() => setActiveChannel(ch)}
               >
                 <span className="channels-item-hash"><HashIcon /></span>
                 <span className="channels-item-name">{ch}</span>

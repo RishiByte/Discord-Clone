@@ -29,9 +29,9 @@ const initialMessages = [
   },
 ];
 
-function Chat() {
-  const [messages, setMessages] = useState(() => {
-    const savedMessages = localStorage.getItem('discordCloneMessages');
+function Chat({ activeChannel }) {
+  const [messagesByChannel, setMessagesByChannel] = useState(() => {
+    const savedMessages = localStorage.getItem('discordCloneMessagesByChannel');
     if (savedMessages) {
       try {
         return JSON.parse(savedMessages);
@@ -39,12 +39,14 @@ function Chat() {
         console.error('Failed to parse messages from localStorage:', error);
       }
     }
-    return initialMessages;
+    return { general: initialMessages };
   });
 
   useEffect(() => {
-    localStorage.setItem('discordCloneMessages', JSON.stringify(messages));
-  }, [messages]);
+    localStorage.setItem('discordCloneMessagesByChannel', JSON.stringify(messagesByChannel));
+  }, [messagesByChannel]);
+
+  const messages = messagesByChannel[activeChannel] || [];
   const [inputText, setInputText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
 
@@ -70,7 +72,10 @@ function Chat() {
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       text: inputText,
     };
-    setMessages([...messages, newMessage]);
+    setMessagesByChannel({
+      ...messagesByChannel,
+      [activeChannel]: [...messages, newMessage]
+    });
     setInputText('');
   };
 
@@ -85,7 +90,7 @@ function Chat() {
       <header className="chat-header">
         <div className="chat-header-left">
           <span className="chat-header-hash"><HashIcon /></span>
-          <span className="chat-header-channel-name">general</span>
+          <span className="chat-header-channel-name">{activeChannel}</span>
           <div className="chat-header-divider" />
           <span className="chat-header-topic">Welcome to the server!</span>
         </div>
@@ -111,9 +116,9 @@ function Chat() {
           <div className="chat-channel-welcome-icon">
             <HashIcon />
           </div>
-          <h2 className="chat-channel-welcome-title">Welcome to #general!</h2>
+          <h2 className="chat-channel-welcome-title">Welcome to #{activeChannel}!</h2>
           <p className="chat-channel-welcome-sub">
-            This is the start of the #general channel.
+            This is the start of the #{activeChannel} channel.
           </p>
         </div>
 
@@ -150,7 +155,7 @@ function Chat() {
           <input
             type="text"
             className="chat-input"
-            placeholder="Message #general"
+            placeholder={`Message #${activeChannel}`}
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
             onKeyDown={handleKeyDown}
