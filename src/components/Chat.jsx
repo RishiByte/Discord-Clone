@@ -29,7 +29,7 @@ const initialMessages = [
   },
 ];
 
-function Chat({ activeChannel }) {
+function Chat({ activeChannel, onMessageSent }) {
   const [messagesByChannel, setMessagesByChannel] = useState(() => {
     const savedMessages = localStorage.getItem('discordCloneMessagesByChannel');
     if (savedMessages) {
@@ -77,6 +77,7 @@ function Chat({ activeChannel }) {
       [activeChannel]: [...messages, newMessage]
     });
     setInputText('');
+    if (onMessageSent) onMessageSent(activeChannel);
   };
 
   const handleKeyDown = (e) => {

@@ -15,7 +15,7 @@ const categories = [
   },
 ];
 
-function Channels({ toggleTheme, theme, activeChannel, setActiveChannel }) {
+function Channels({ toggleTheme, theme, activeChannel, setActiveChannel, unreadCounts = {} }) {
   return (
     <aside className="channels">
       {/* Server header */}
@@ -33,16 +33,31 @@ function Channels({ toggleTheme, theme, activeChannel, setActiveChannel }) {
               {cat.label}
             </div>
 
-            {cat.channels.map((ch) => (
-              <div
-                key={ch}
-                className={`channels-item ${ch === activeChannel ? 'channels-item--active' : ''}`}
-                onClick={() => setActiveChannel(ch)}
-              >
-                <span className="channels-item-hash"><HashIcon /></span>
-                <span className="channels-item-name">{ch}</span>
-              </div>
-            ))}
+            {cat.channels.map((ch) => {
+              const unread = unreadCounts[ch] || 0;
+              const isActive = ch === activeChannel;
+              const hasUnread = unread > 0 && !isActive;
+
+              return (
+                <div
+                  key={ch}
+                  className={[
+                    'channels-item',
+                    isActive ? 'channels-item--active' : '',
+                    hasUnread ? 'channels-item--unread' : '',
+                  ].join(' ').trim()}
+                  onClick={() => setActiveChannel(ch)}
+                >
+                  <span className="channels-item-hash"><HashIcon /></span>
+                  <span className="channels-item-name">{ch}</span>
+                  {hasUnread && (
+                    <span className="channels-item-badge">
+                      {unread > 99 ? '99+' : unread}
+                    </span>
+                  )}
+                </div>
+              );
+            })}
           </div>
         ))}
       </div>
