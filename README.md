@@ -1,16 +1,97 @@
-# React + Vite
+# 💬 Discord Clone (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Project Overview
+This project is a Discord UI Clone built using React as part of a college group project. The goal was to replicate the core interface and basic functionality of Discord without using any backend.
 
-Currently, two official plugins are available:
+All data handling is done using React state and LocalStorage, simulating real-world application behavior.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 👨‍💻 Team Members
+- Rishi  
+- Parth  
+- Daksh  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Each member contributed equally with balanced commits in GitHub.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Features
+
+- Sidebar (Servers UI)  
+  Vertical server icons with hover effects and active states  
+
+- Channels List  
+  Clickable channels with active highlighting  
+
+- Chat System  
+  Display messages with username, text, and timestamp  
+
+- Message Input  
+  Send messages dynamically using React state  
+
+- LocalStorage Support  
+  Messages persist after page refresh  
+
+- Multiple Channels Support  
+  Each channel maintains separate chat data  
+
+- Typing Indicator  
+  Shows when user is typing  
+
+- Dark / Light Mode  
+  Theme toggle using plain CSS (no variables used)  
+
+- Delete Message  
+  Remove messages from chat  
+
+- Notification Badge  
+  Unread message indicators on channels  
+
+---
+
+## 🛠️ Tech Stack
+
+- React (Vite)
+- JavaScript (ES6)
+- Plain CSS (No Tailwind, No CSS Variables)
+- React Router
+- LocalStorage
+
+---
+
+## 📁 Project Structure
+
+src/
+  components/
+    Sidebar.jsx
+    Channels.jsx
+    Chat.jsx
+  pages/
+    Home.jsx
+  styles/
+    *.css
+  App.jsx
+
+---
+
+## ⚙️ Installation & Setup
+
+npm install  
+npm run dev  
+
+---
+
+## 🎯 Learning Outcomes
+
+- Component-based architecture in React  
+- State management without backend  
+- UI structuring similar to real-world apps  
+- LocalStorage integration  
+- Team collaboration using GitHub  
+
+---
+
+## 📌 Note
+
+This project is built for educational purposes and does not include real-time backend functionality.
